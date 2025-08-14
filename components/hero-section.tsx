@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, easeInOut } from "framer-motion"
 import { ArrowDown, Code, Palette, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -22,7 +22,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: easeInOut,
     },
   },
 }
@@ -33,8 +33,8 @@ const floatingIconVariants = {
     rotate: [0, 5, -5, 0],
     transition: {
       duration: 6,
-      repeat: Number.POSITIVE_INFINITY,
-      ease: "easeInOut",
+      repeat: Infinity,
+      ease: easeInOut,
     },
   },
 }
@@ -79,17 +79,9 @@ export function HeroSection() {
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-foreground">
             <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="block"
-            >
-              
-            </motion.span>
-            <motion.span
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="block bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent"
             >
               Doreen
@@ -112,7 +104,7 @@ export function HeroSection() {
           <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3">
             View My Work
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-3 bg-transparent">
+          <Button variant="outline" size="lg" className="px-8 py-3">
             Get In Touch
           </Button>
         </motion.div>
@@ -125,7 +117,7 @@ export function HeroSection() {
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center text-muted-foreground"
           >
             <span className="text-sm mb-2">Scroll to explore</span>
